@@ -106,12 +106,9 @@ class Sandbox(ABC):
                 via :func:`_validate_extra_env` before use. Values are
                 arbitrary strings — shell-using implementations
                 ``shlex.quote`` them on splice.
-            timeout: Optional per-call wall-clock timeout in seconds. Local
-                sandboxes use this to bound host bash commands so long-lived
-                foreground processes cannot hang a turn indefinitely. Remote/AIO
-                implementations may ignore it when their backend does not expose
-                an equivalent command-timeout control separate from its own API
-                timeouts.
+            timeout: Optional per-call command timeout in seconds. Implementations
+                pass it to their backend when per-command timeout control is
+                supported; otherwise the backend keeps its own command default.
 
         Returns:
             The standard or error output of the command.

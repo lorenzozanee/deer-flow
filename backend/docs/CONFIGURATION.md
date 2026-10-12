@@ -1263,6 +1263,9 @@ sandbox:
 so no extra install step is needed; just supply your API key and switch the
 provider in `config.yaml`.
 
+The bash tool passes `sandbox.bash_command_timeout` to E2B for each command,
+overriding the SDK's 60-second default when the setting is configured.
+
 Notes specific to `E2BSandboxProvider`:
 
 - Each DeerFlow thread is bound to its E2B sandbox via metadata

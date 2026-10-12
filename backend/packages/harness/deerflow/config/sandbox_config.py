@@ -323,14 +323,12 @@ class SandboxConfig(BaseModel):
         gt=0,
         allow_inf_nan=False,
         description=(
-            "Provider command deadline. AIO images on the supported semver line "
-            "(1.9.3+, recommended 1.11.0) enforce it server-side through "
+            "Per-command deadline passed by the bash tool to local and non-local "
+            "providers that support explicit timeouts. AIO images on the supported "
+            "semver line (1.9.3+, recommended 1.11.0) enforce it server-side through "
             "`hard_timeout`; the frozen legacy `all-in-one-sandbox:latest` image "
-            "only gets the bounded host-side request. `bash_command_timeout` is "
-            "used by providers that explicitly wire this setting (currently "
-            "LocalSandbox, AioSandbox, and OpenSandbox). Other providers retain "
-            "their provider-specific command defaults unless a caller supplies an "
-            "explicit timeout."
+            "only gets the bounded host-side request. Providers without per-command "
+            "timeout support keep their provider-specific defaults."
         ),
     )
 
